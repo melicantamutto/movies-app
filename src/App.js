@@ -1,23 +1,40 @@
-import './App.css';
+// Importing LIBRARIES
+import { Layout } from "antd";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
+// Importing PAGES
+import Home from "./pages/home";
+import Error404 from "./pages/error404";
+import Popular from "./pages/popular";
+import Search from "./pages/search";
+import Movie from "./pages/movie";
+import NewMovies from "./pages/new_movies";
+
+// Importing COMPONENTS
+import MenuTop from "./components/MenuTop";
+
+const App = () => {
+  const { Header, Content, Footer } = Layout;
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Router>
+        <Header>
+          <MenuTop></MenuTop>
+        </Header>
+        <Content>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/popular" component={Popular} />
+            <Route exact path="/new-movies" component={NewMovies} />
+            <Route exact path="/movie/:id" component={Movie} />
+            <Route path="*" component={Error404} />
+          </Switch>
+        </Content>
+        <Footer>Footer...</Footer>
+      </Router>
+    </Layout>
   );
-}
+};
 
 export default App;

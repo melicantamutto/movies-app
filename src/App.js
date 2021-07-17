@@ -19,7 +19,7 @@ const App = () => {
   return (
     <Layout>
       <Router>
-        <Header>
+        <Header style={{zIndex: '1'}}>
           <MenuTop></MenuTop>
         </Header>
         <Content>
@@ -32,7 +32,7 @@ const App = () => {
             <Route path="*" component={Error404} />
           </Switch>
         </Content>
-        <Footer />
+        <Footer style={{zIndex: '1'}} />
       </Router>
     </Layout>
   );

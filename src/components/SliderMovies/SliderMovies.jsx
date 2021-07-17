@@ -1,10 +1,11 @@
-import "./SliderMovies.sass";
+// Imports from dependencie
 import { Carousel, Button } from 'antd';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
+// Internal imports
+import "./SliderMovies.sass";
 import Loading from "../Loading";
-
-
-
+import { IMAGE_PATH } from "../../utils/constants";
 
 
 const SliderMovies = ({moviesData}) => {
@@ -30,7 +31,7 @@ const SliderMovies = ({moviesData}) => {
 const Movie= ({movie: {id, backdrop_path: backdropPath, title, overview}}) =>{
   return ( <div
     className="slider__movie"
-    style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${backdropPath}")`}}
+    style={{backgroundImage: `url("${IMAGE_PATH + backdropPath}")`}}
   >
     <div className="slider__movie-data            ">
       <div>

@@ -1,9 +1,11 @@
 import "./ListMovies.sass";
 import Loading from "../Loading";
+import { IMAGE_PATH } from "../../utils/constants";
+
 
 import { Link } from "react-router-dom";
 import { List, Avatar, Button } from "antd";
-import {RightOutlined} from '@ant-design/icons';
+import {PlusOutlined} from '@ant-design/icons';
 
 const ListMovies = ({ title, moviesData }) => {
   if (moviesData.Loading || !moviesData.result) {
@@ -27,12 +29,12 @@ const RenderMovie = ({ movie: { id, title, poster_path: posterPath } }) => {
     <List.Item className="list__item">
       <List.Item.Meta
         avatar={
-          <Avatar src={`https://image.tmdb.org/t/p/original${posterPath}`} />
+          <Avatar src={`${IMAGE_PATH + posterPath}`} />
         }
         title={<Link to={`/movie/${id}`}>{title}</Link>}
       />
       <Link to={`/movie/${id}`}>
-        <Button type="primary" shape="circle" icon={<RightOutlined />} />
+        <Button type="primary" shape="circle" icon={<PlusOutlined />} />
       </Link>
     </List.Item>
   );

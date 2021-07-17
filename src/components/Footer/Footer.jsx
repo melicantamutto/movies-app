@@ -1,6 +1,5 @@
 import "./Footer.sass";
-
-import { Layout } from "antd/lib/layout/layout";
+import { Layout } from "antd";
 
 const Footer = () => {
   const { Footer } = Layout;

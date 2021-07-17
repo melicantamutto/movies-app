@@ -12,9 +12,10 @@ import NewMovies from "./pages/new_movies";
 
 // Importing COMPONENTS
 import MenuTop from "./components/MenuTop";
+import Footer from "./components/Footer";
 
 const App = () => {
-  const { Header, Content, Footer } = Layout;
+  const { Header, Content } = Layout;
   return (
     <Layout>
       <Router>
@@ -31,7 +32,7 @@ const App = () => {
             <Route path="*" component={Error404} />
           </Switch>
         </Content>
-        <Footer>Footer...</Footer>
+        <Footer />
       </Router>
     </Layout>
   );

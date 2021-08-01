@@ -3,13 +3,14 @@ import CardsMovies from "../components/CardsMovies/CardsMovies";
 import SearchInput from "../components/SearchInput";
 import { URL_API, API_KEY } from "../utils/constants";
 
+
 const Search = () => {
   const [currentSearch, setCurrentSearch] = useState("");
   const [url, setUrl] = useState("");
 
   useEffect(() => {
     if (currentSearch !== "") {
-      setUrl(`${URL_API}/search/${currentSearch}?api_key=${API_KEY}&page=1`);
+      setUrl(`${URL_API}/search/${currentSearch}${API_KEY}&page=1`);
     }
   }, [currentSearch]);
 

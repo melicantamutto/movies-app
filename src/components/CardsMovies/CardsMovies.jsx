@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import "./CardsMovies.sass";
 import { IMAGE_PATH } from "../../utils/constants";
 import { useState, useEffect } from "react";
@@ -8,6 +7,7 @@ import { Pagination } from "antd";
 import Loading from "../Loading";
 import { Link } from "react-router-dom";
 const { Meta } = Card;
+
 const CardsMovies = ({ url }) => {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
@@ -16,7 +16,6 @@ const CardsMovies = ({ url }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       const urlWithPagination = `${url}&page=${page}`;
-      console.log(urlWithPagination);
       const response = await fetch(urlWithPagination);
       const moviesObj = await response.json();
       setTotalPages(moviesObj.total_pages);
@@ -27,10 +26,9 @@ const CardsMovies = ({ url }) => {
 
   const handlePageClick = (page) => {
     setPage(page);
-    console.log(page);
   };
 
-  if (movies === []) {
+  if (movies === undefined) {
     return <Loading />;
   }
   return (

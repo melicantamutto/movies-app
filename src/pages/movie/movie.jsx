@@ -1,4 +1,5 @@
 // Imports from dependencies
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Col, Row, Button } from "antd";
 import moment from "moment";
@@ -20,7 +21,7 @@ const Movie = () => {
   const movieVideo = useFetch(urlVideo);
 
   if (movieData.loading || !movieData.result || !movieVideo.result) {
-    return <Loading />;
+    return (<Loading />);
   }
   if (movieVideo.result.results.length > 0) {
     const {
@@ -28,7 +29,11 @@ const Movie = () => {
         results: [videoData],
       },
     } = movieVideo;
-    return <RenderMovie movieData={movieData} videoData={videoData} />;
+    return (<RenderMovie movieData={movieData} videoData={videoData} />);
+  }else{
+    return  <h1 className="provisory-title">
+    No encontramos datos de esa película
+  </h1>
   }
 };
 
@@ -59,11 +64,13 @@ const InfoMovie = ({
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const openModal = () => setIsVisibleModal(true);
   const closeModal = () => setIsVisibleModal(false);
+
   const renderVideo = () => {
     if (key && site) {
       return (
-        <div className="info__button">
+        <div>
           <Button
+            className="info__button"
             type="primary"
             icon={<PlaySquareOutlined />}
             onClick={openModal}
@@ -82,11 +89,13 @@ const InfoMovie = ({
   };
   return (
     <div className="info">
-      <h1 className="info__mainTitle">
-        {title} ~
-        <span> {moment(release_date, "YYYY-MM-DD").format("YYYY")}</span>
-      </h1>
-      {renderVideo()}
+      <div>
+        <h1 className="info__mainTitle">
+          {title}
+          <span> ~ {moment(release_date, "YYYY-MM-DD").format("YYYY")}</span>
+        </h1>
+        {renderVideo()}
+      </div>
       <div>
         <h3 className="info__subTitle">General</h3>
         <p className="info__description">{overview}</p>

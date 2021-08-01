@@ -8,10 +8,10 @@ const { Title } = Typography;
 const Popular = () => {
   const url = `${URL_API}/movie/popular${API_KEY}&languaje=es-ES`;
   return (
-    <>
-      <Title className="page-title">Películas Populares</Title>
+    <div className="page">
+      <Title className="__title">Películas Populares</Title>
       <CardsMovies url={url} />
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import "./MenuTop.sass";
 import { Link } from "react-router-dom";
 import { Menu } from "antd";
-// import { ReactComponent as Logo } from "";
+// import { ReactComponent as Logo } from "../../assets/popcorn_m.png";
 
 const MenuTop = () => {
   return (
@@ -15,16 +15,16 @@ const MenuTop = () => {
         defaultSelectedKeys={['1']}
         style={{lineHeight:"64px"}}
       >
-          <Menu.Item key="1">
+          <Menu.Item key="1" className="menu-top__item">
               <Link to="/">Home</Link>
           </Menu.Item>
-          <Menu.Item key="2">
+          <Menu.Item key="2" className="menu-top__item">
               <Link to="/new-movies">Películas nuevas</Link>
           </Menu.Item>
-          <Menu.Item key="3">
+          <Menu.Item key="3" className="menu-top__item">
               <Link to="/popular">Más populares</Link>
           </Menu.Item>
-          <Menu.Item key="4">
+          <Menu.Item key="4" className="menu-top__item">
               <Link to="/search">Buscar</Link>
           </Menu.Item>
       </Menu>

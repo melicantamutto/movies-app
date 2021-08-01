@@ -1,3 +1,6 @@
+// Importing STYLES
+import './App.less';
+
 // Importing LIBRARIES
 import { Layout } from "antd";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

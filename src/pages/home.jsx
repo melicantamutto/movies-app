@@ -4,9 +4,7 @@ import SliderMovies from "../components/SliderMovies";
 import ListMovies from "../components/ListMovies";
 import { URL_API, API_KEY } from "../utils/constants";
 // Style imports
-import { Row, Col } from 'antd'
-
-
+import { Row, Col } from "antd";
 
 const Home = () => {
   const urlNewMovies = `${URL_API}/movie/now_playing${API_KEY}&language=es-ES&page=1`;
@@ -20,20 +18,21 @@ const Home = () => {
     <div>
       <SliderMovies moviesData={newMoviesData} />
       <Row>
-        <Col span={12}>
-          <ListMovies title="Peliculas Populares" moviesData={popularMoviesData} />
+        <Col xs={24} sm={24} md={12}>
+          <ListMovies
+            title="Peliculas Populares"
+            moviesData={popularMoviesData}
+          />
         </Col>
-        <Col span={12}>
-        <ListMovies title="Peliculas Mejor Puntadas" moviesData={recommendedMoviesData} />
+        <Col xs={24} sm={24} md={12}>
+          <ListMovies
+            title="Peliculas Mejor Puntadas"
+            moviesData={recommendedMoviesData}
+          />
         </Col>
       </Row>
-
     </div>
   );
 };
 
 export default Home;
-
-
-
-

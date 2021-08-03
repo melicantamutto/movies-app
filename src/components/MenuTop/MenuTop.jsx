@@ -1,13 +1,13 @@
 import "./MenuTop.sass";
 import { Link } from "react-router-dom";
 import { Menu } from "antd";
-// import { ReactComponent as Logo } from "../../assets/popcorn_m.png";
+import logo from "../../assets/popcorn_m.png";
 
 const MenuTop = () => {
   return (
     <div className="menu-top">
       <div className="menu-top__logo">
-        {/* <Logo /> */}
+        <img src={logo} alt="popcorn" />
       </div>
       <Menu
         theme="dark"

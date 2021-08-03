@@ -16,7 +16,7 @@ const MenuTop = () => {
         style={{lineHeight:"64px"}}
       >
           <Menu.Item key="1" className="menu-top__item">
-              <Link to="/">Home</Link>
+              <Link to="/movies-app">Home</Link>
           </Menu.Item>
           <Menu.Item key="2" className="menu-top__item">
               <Link to="/new-movies">Películas nuevas</Link>
